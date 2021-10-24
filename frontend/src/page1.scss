@@ -1,0 +1,212 @@
+$maincolor:#3281a8;
+$textcolor:#FFFFFF;
+$mintextsize:1em;
+
+@mixin mobile {
+    @media screen and(min-width:120px)and(max-width:1200px){
+        @content;
+    }
+}
+
+.container{
+    display: flex;
+    @include mobile{
+        flex-direction: column;
+    }
+    .form{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 4;
+        .switch{
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li{
+                cursor: pointer;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                padding: 1vmin;
+                margin: 1vmin;
+                height: 1vh;
+                border-radius: 50vw;;
+                width: 20%;
+                background: $textcolor;
+                color: $maincolor;
+                @include mobile{
+                    height: 2vmax;
+                }
+            }
+            .choose{
+                background: $maincolor;
+                color: $textcolor;
+            }
+        }
+        .inputgroup{
+            padding:2vmin 10vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            @include mobile{
+                flex:1;
+            }
+            select{
+                cursor: pointer;
+                margin: 2vmin;
+                width: 100%;
+                height: 5vmin;
+                padding:0 3vmin 0 3vmin;
+                letter-spacing: 2vmin;
+                text-indent: 2vmin;
+                @include mobile{
+                    height: 10vmin;
+                    font-size: 1.2em;
+                }
+                outline: none;
+                border: $maincolor 2px solid;
+                font-size: $mintextsize;
+                border-radius: 100vw;
+                background: $textcolor;
+                color: $maincolor;
+                text-align: center;
+                option{
+                    background: $textcolor;
+                    color: $maincolor;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            select:hover{
+                background: $maincolor;
+                color: $textcolor;
+            }
+            button{
+                width: 60%;
+                height: 5vmin;
+                @include mobile{
+                    height: 10vmin;
+                    font-size: 1.5em;
+                    text-align-last: center;
+                    letter-spacing: 1vmin;
+                    text-indent: 1vmin;
+                }
+                border-radius: 100vw;
+                border: 0;
+                background: $maincolor;
+                color: $textcolor;
+                font-size: $mintextsize;
+                outline: none;
+                text-align: center;
+                text-indent: 2vmin;
+                letter-spacing: 2vmin;
+            };
+    
+        }
+    }
+    .table{
+        display: flexbox;
+        flex:7;
+        @include mobile{
+            flex: 1;
+        }
+        justify-content: center;
+        .header{
+            padding: 5vw 5vw 0 2vw;
+            @include mobile{
+                padding: 0 3vw 0 3vw;
+            }
+            display: flex;
+            flex: 1;
+            li{
+                background: $maincolor;
+                color: $textcolor;
+                padding: 1vw;
+                flex: 1;
+                list-style: none;
+                display: inline;
+            }
+            li:nth-child(1){
+                border-top-left-radius: 50vw ;
+                border-bottom-left-radius: 50vw;
+            }
+            li:nth-child(4){
+                border-top-right-radius: 50vw;
+                border-bottom-right-radius: 50vw;
+            }
+        }
+        .data-container{
+            flex: 9;
+            padding: 0 5vw 0 2vw;
+            display: flex;
+            flex-wrap: wrap;
+            @include mobile{
+                padding: 0 3vw 0 3vw;
+            }
+            div{
+                width: 100%;
+                .items,.clinctable{
+                    display: flex;
+                    width: 100%;
+                    li{
+                        overflow-x: scroll;
+                        padding: 1vw;
+                        background: $textcolor;
+                        color: $maincolor;
+                        flex: 1;
+                        list-style: none;
+                        display: inline;
+                    }
+                    li::-webkit-scrollbar {
+                        display: none;
+                    }
+                    border-bottom: 2px solid $maincolor;
+                }
+                .clinctable{
+                    margin: 0 auto;
+                    width: 80%;
+                    height: auto;
+                    flex-wrap: wrap;
+                    transition: 0.2s ease;
+                    .clinc_status{
+                        display: flex;
+                        width: 100%;
+                        li{
+                            overflow-x: scroll;
+                            padding: 1vw;
+                            background: $textcolor;
+                            color: $maincolor;
+                            flex: 1;
+                            list-style: none;
+                            display: inline;
+                        }
+                        li::-webkit-scrollbar {
+                            display: none;
+                        }
+                        border-bottom: 2px solid $maincolor;
+                    }
+                    li:first-child{
+                        background: $maincolor;
+                        color: $textcolor;
+                    }
+                }
+                .hidetable{
+                    margin: 0 auto;
+                    overflow: hidden;
+                    width: 0;
+                    height: 0;
+                    flex-wrap: wrap;
+                    transition: 0.2s ease;
+                    .clinc_status{
+                        display: flex;
+                        width: 0;
+                        height: 0;
+                    }
+                }
+            }
+        }
+    }
+}

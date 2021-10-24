@@ -1,0 +1,27 @@
+$maincolor:#3281a8;
+.marker_extend{
+    width: 10vmin;
+    height: 3vmin;
+    background: whitesmoke;
+    border: 2px solid $maincolor;
+    border-radius: 5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+.marker_closed{
+    width: 3vmin;
+    height: 3vmin;
+    background: whitesmoke;
+    border: 2px solid $maincolor;
+    border-radius: 5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
